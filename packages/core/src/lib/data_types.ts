@@ -43,6 +43,12 @@ export function toVarInt(n: number): Uint8Array {
   }
   return new Uint8Array(result);
 }
+export function toProtocolString(str: string): Uint8Array {
+  return new Uint8Array([
+    ...toVarInt(str.length),
+    ...str.split('').map((c) => c.charCodeAt(0)),
+  ]);
+}
 export function parseString(
   buffer: Buffer | Uint8Array,
   start_position: number

@@ -1,7 +1,6 @@
 import { Socket } from 'net';
-import { toUnsignedShort, toVarInt } from './data_types';
-import { parseServerPacket, readPackets, sendPacket } from './packets';
-import { S0HandshakePacket, NextState } from './packets/SHandShake';
+import { toProtocolString, toUnsignedShort, toVarInt } from './data_types';
+import { readPackets, sendPacket, C0HandshakePacket } from './packets';
 describe('Packet Compression', () => {
   test('Sends compressed packets correctly', async () => {
     let socketMock = {
@@ -112,26 +111,22 @@ it('Reads multiple packets correctly', async () => {
     },
   ]);
 });
-describe('Server Packet Parser', () => {
-  test('S0HandShake', () => {
-    let raw_packet = {
-      id: 0,
-      data: new Uint8Array([
+describe('Packet Classes', () => {
+  test('C0HandShake', () => {
+    let handshake = new C0HandshakePacket({
+      protocol_version: 760,
+      server_address: 'localhost',
+      server_port: 25565,
+      next_state: 2,
+    });
+    let data = handshake.generatePacketData();
+    expect(data).toStrictEqual(
+      new Uint8Array([
         ...toVarInt(760),
-        ...toVarInt(9),
-        ...'127.0.0.1'.split('').map((c) => c.charCodeAt(0)),
+        ...toProtocolString('localhost'),
         ...toUnsignedShort(25565),
-        ...toVarInt(NextState.Status),
-      ]),
-      was_compressed: false,
-    };
-    let parsed_packet = parseServerPacket(raw_packet) as S0HandshakePacket;
-    expect(parsed_packet).toBeInstanceOf(S0HandshakePacket);
-    expect(parsed_packet.id).toBe(0);
-    expect(parsed_packet.raw).toBe(raw_packet);
-    expect(parsed_packet.protocol_version).toBe(760);
-    expect(parsed_packet.server_address).toBe('127.0.0.1');
-    expect(parsed_packet.server_port).toBe(25565);
-    expect(parsed_packet.next_state).toBe(NextState.Status);
+        ...toVarInt(2),
+      ])
+    );
   });
 });

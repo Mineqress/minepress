@@ -1,8 +1,5 @@
-import assert from 'assert';
 import { Socket, TcpSocketConnectOpts } from 'net';
-import { toVarInt } from './data_types';
 import { parseServerPacket, readPackets } from './packets';
-import { S0HandshakePacket } from './packets/SHandShake';
 interface OfflineLoginOptions {
   type: 'offline';
   username?: string;
@@ -37,18 +34,36 @@ function recv(socket: Socket): Promise<Buffer> {
   });
 }
 export * as packets from './packets';
-
+export interface ConnectionState {
+  compressed: boolean;
+}
 export class Client {
   socket: Socket;
-
-  // @ts-ignore
+  client_state: ConnectionState;
+  opts: ConnectOptions;
   constructor(opts: ConnectOptions, socket?: Socket) {
     this.socket = socket || new Socket();
+    this.opts = opts;
+    this.client_state = {
+      compressed: false,
+    };
   }
   async connect() {
     await promiseConnect(this.socket, {
-      host: 'localhost',
-      port: 25565,
+      host: this.opts.host,
+      port: this.opts.port || 25565,
     });
+  }
+
+  async readPacketsAndReact() {
+    let raw_packets = await readPackets(
+      this.socket,
+      this.client_state.compressed
+    );
+    for (let raw_packet of raw_packets) {
+      let packet = parseServerPacket(raw_packet);
+      switch (packet.id) {
+      }
+    }
   }
 }

@@ -1,5 +1,8 @@
 {
   "name": "@minepress/minepress",
   "version": "0.0.1",
-  "type": "commonjs"
+  "type": "module",
+  "dependencies": {
+    "@minepress/core": "../../dist/packages/core/"
+  }
 }

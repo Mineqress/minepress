@@ -4,7 +4,6 @@
 import * as zlib from 'node:zlib';
 import { Socket } from 'node:net';
 import { parseVarInt, toVarInt } from '../data_types';
-import { S0HandshakePacket } from './SHandShake';
 import assert from 'node:assert';
 export interface ClientPacket {
   id: number;
@@ -126,9 +125,7 @@ export interface ServerPacket {
 }
 export function parseServerPacket(packet: RawServerPacket): ServerPacket {
   switch (packet.id) {
-    case 0x00: {
-      return S0HandshakePacket.fromRawPacket(packet);
-    }
   }
   throw new Error('Not implemented');
 }
+export { C0HandshakePacket } from './CHandShake';
