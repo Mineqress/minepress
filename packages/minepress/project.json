@@ -4,6 +4,13 @@
   "sourceRoot": "packages/minepress/src",
   "projectType": "library",
   "targets": {
+    "run": {
+      "executor": "@nrwl/js:node",
+      "options": {
+        "buildTarget": "minepress:build",
+        "watch": false
+      }
+    },
     "build": {
       "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],

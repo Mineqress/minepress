@@ -2,9 +2,10 @@
   "name": "minepress",
   "version": "0.0.0",
   "license": "MIT",
+  "type": "commonjs",
   "scripts": {
     "prepare": "husky install",
-    "cli": "nx run minepress:build && node dist/packages/minepress/src/index.js",
+    "cli": "nx run minepress:run",
     "format": "prettier --write ."
   },
   "private": true,

@@ -3,6 +3,8 @@
     "target": "ES2022",
     "module": "CommonJS",
     "types": ["node"],
+    "baseUrl": ".",
+    "moduleResolution": "node",
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,

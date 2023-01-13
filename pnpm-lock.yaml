@@ -62,9 +62,9 @@ importers:
 
   packages/minepress:
     specifiers:
-      '@minepress/core': ../../dist/packages/core/
+      '@minepress/core': '*'
     dependencies:
-      '@minepress/core': link:../../dist/packages/core
+      '@minepress/core': link:../core
 
   packages/minexpect:
     specifiers: {}
