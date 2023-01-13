@@ -24,11 +24,10 @@
     "allowUnreachableCode": false,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-    "baseUrl": ".",
     "paths": {
-      "@minepress/core": ["packages/core/src/index.ts"],
-      "@minepress/minepress": ["packages/minepress/src/index.ts"],
-      "@minepress/minexpect": ["packages/minexpect/src/index.ts"]
+      "@minepress/core": ["./packages/core/src/index.ts"],
+      "@minepress/minepress": ["./packages/minepress/src/index.ts"],
+      "@minepress/minexpect": ["./packages/minexpect/src/index.ts"]
     }
   }
 }
