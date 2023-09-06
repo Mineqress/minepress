@@ -1,0 +1,17 @@
+{
+  "name": "minui-linux-arm-gnueabihf",
+  "version": "0.0.0",
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "arm"
+  ],
+  "main": "minui.linux-arm-gnueabihf.node",
+  "files": [
+    "minui.linux-arm-gnueabihf.node"
+  ],
+  "engines": {
+    "node": ">= 10"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "minui-darwin-x64",
+  "version": "0.0.0",
+  "os": [
+    "darwin"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "main": "minui.darwin-x64.node",
+  "files": [
+    "minui.darwin-x64.node"
+  ],
+  "engines": {
+    "node": ">= 10"
+  }
+}

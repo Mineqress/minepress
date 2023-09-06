@@ -1,0 +1,9 @@
+
+[workspace]
+members = [
+	'packages/minui',
+]
+resolver = '2'
+
+[profile.release]
+lto = true
