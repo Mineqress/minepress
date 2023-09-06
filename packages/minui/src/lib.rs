@@ -1,6 +1,7 @@
+pub mod varint;
 use std::sync::Arc;
 
-use tokio::{net::TcpStream, sync::Mutex};
+use tokio::net::TcpStream;
 
 #[macro_use]
 extern crate napi_derive;

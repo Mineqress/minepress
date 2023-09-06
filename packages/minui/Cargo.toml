@@ -11,6 +11,7 @@ napi = { version = '2.10.2', default-features = false, features = [
 ] }
 napi-derive = '2.9.3'
 tokio = { version = "1", features = ["full"] }
+thiserror = "*"
 [dependencies.raylib]
 git = "https://github.com/coffee-is-power/raylib-rs.git"
 rev = "7fbb49f1e6b8f862567d588e7a9ebaad815dde23"
