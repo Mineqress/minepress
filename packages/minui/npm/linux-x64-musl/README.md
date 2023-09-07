@@ -1,3 +1,3 @@
-# `minui-linux-x64-musl`
+# `@minepress/minui-linux-x64-musl`
 
-This is the **x86_64-unknown-linux-musl** binary for `minui`
+This is the **x86_64-unknown-linux-musl** binary for `@minepress/minui`

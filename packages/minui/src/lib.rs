@@ -13,7 +13,8 @@ pub struct JsMinuiClient {
 #[napi]
 pub async fn connect(address: String) -> JsMinuiClient {
     let socket = TcpStream::connect(address).await.unwrap();
-    JsMinuiClient {
+    let client = JsMinuiClient {
         socket: Arc::new(socket)
-    }
+    };
+    client
 }

@@ -1,5 +1,5 @@
 {
-  "name": "minui-win32-arm64-msvc",
+  "name": "@minepress/minui-win32-arm64-msvc",
   "version": "0.0.0",
   "os": [
     "win32"
@@ -11,6 +11,7 @@
   "files": [
     "minui.win32-arm64-msvc.node"
   ],
+  "license": "MIT",
   "engines": {
     "node": ">= 10"
   }

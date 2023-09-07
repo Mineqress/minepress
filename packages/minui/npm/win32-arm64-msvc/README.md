@@ -1,3 +1,3 @@
-# `minui-win32-arm64-msvc`
+# `@minepress/minui-win32-arm64-msvc`
 
-This is the **aarch64-pc-windows-msvc** binary for `minui`
+This is the **aarch64-pc-windows-msvc** binary for `@minepress/minui`

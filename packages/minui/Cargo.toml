@@ -1,25 +1,22 @@
-
 [package]
-name = 'minui'
-version = '0.1.0'
-edition = '2021'
+edition = "2021"
+name = "minepress_minui"
+version = "0.0.0"
+
+[lib]
+crate-type = ["cdylib"]
 
 [dependencies]
-napi = { version = '2.10.2', default-features = false, features = [
-	'napi4',
-	"tokio_rt"
-] }
-napi-derive = '2.9.3'
+# Default enable napi4 feature, see https://nodejs.org/api/n-api.html#node-api-version-matrix
+napi = { version = "2.10.0", default-features = false, features = ["napi4", "async"] }
+napi-derive = "2.9.1"
 tokio = { version = "1", features = ["full"] }
 thiserror = "*"
 [dependencies.raylib]
 git = "https://github.com/coffee-is-power/raylib-rs.git"
-rev = "7fbb49f1e6b8f862567d588e7a9ebaad815dde23"
-
-[lib]
-crate-type = [
-	'cdylib',
-]
+branch = "4.5.0"
 
 [build-dependencies]
-napi-build = '2.0.1'
+napi-build = "2.0.1"
+[profile.release]
+lto = true

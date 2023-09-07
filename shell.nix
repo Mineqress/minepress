@@ -1,5 +1,8 @@
 let
   pkgs = import <nixpkgs> {};
+  unstablePkgs = import (builtins.fetchTarball {
+    url = "https://github.com/NixOS/nixpkgs/archive/3c15feef7770eb5500a4b8792623e2d6f598c9c1.tar.gz";
+  }) {};
   raylibLinuxDeps = with pkgs; [
     mesa
     mesa.drivers
@@ -20,23 +23,17 @@ let
 in
 pkgs.mkShell rec {
   buildInputs = [
-    pkgs.nodejs_20  # Node.js
+    unstablePkgs.bun
     pkgs.rustup       # Rust (via rustup)
-    pkgs.nodePackages.pnpm  # pnpm package manager
     pkgs.ninja
     pkgs.clang
     pkgs.libclang
+    pkgs.cargo-fuzz
+    pkgs.napi-rs-cli
   ] ++ raylibLinuxDeps;
   nativeBuildInputs = [ 
     pkgs.pkg-config
   ];
   LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
-  shellHook = ''
-    # Install Nx globally (replace with the Nx version you need)
-    if ! command -v <the_command> &> /dev/null
-    then
-      pnpm -g add nx
-    fi
-  '';
 }
 

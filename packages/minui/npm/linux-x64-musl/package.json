@@ -1,5 +1,5 @@
 {
-  "name": "minui-linux-x64-musl",
+  "name": "@minepress/minui-linux-x64-musl",
   "version": "0.0.0",
   "os": [
     "linux"
@@ -11,6 +11,7 @@
   "files": [
     "minui.linux-x64-musl.node"
   ],
+  "license": "MIT",
   "engines": {
     "node": ">= 10"
   },

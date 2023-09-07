@@ -267,6 +267,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8f232d6ef707e1956a43342693d2a31e72989554d58299d7a88738cc95b0d35c"
 
 [[package]]
+name = "minepress_minui"
+version = "0.0.0"
+dependencies = [
+ "napi",
+ "napi-build",
+ "napi-derive",
+ "raylib",
+ "thiserror",
+ "tokio",
+]
+
+[[package]]
 name = "minimal-lexical"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -279,18 +291,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e7810e0be55b428ada41041c41f32c9f1a42817901b4ccf45fa3d4b6561e74c7"
 dependencies = [
  "adler",
-]
-
-[[package]]
-name = "minui"
-version = "0.1.0"
-dependencies = [
- "napi",
- "napi-build",
- "napi-derive",
- "raylib",
- "thiserror",
- "tokio",
 ]
 
 [[package]]
@@ -453,7 +453,7 @@ dependencies = [
 [[package]]
 name = "raylib"
 version = "4.5.0"
-source = "git+https://github.com/coffee-is-power/raylib-rs.git?rev=7fbb49f1e6b8f862567d588e7a9ebaad815dde23#7fbb49f1e6b8f862567d588e7a9ebaad815dde23"
+source = "git+https://github.com/coffee-is-power/raylib-rs.git?branch=4.5.0#7fbb49f1e6b8f862567d588e7a9ebaad815dde23"
 dependencies = [
  "cfg-if",
  "lazy_static",
@@ -464,7 +464,7 @@ dependencies = [
 [[package]]
 name = "raylib-sys"
 version = "4.5.0"
-source = "git+https://github.com/coffee-is-power/raylib-rs.git?rev=7fbb49f1e6b8f862567d588e7a9ebaad815dde23#7fbb49f1e6b8f862567d588e7a9ebaad815dde23"
+source = "git+https://github.com/coffee-is-power/raylib-rs.git?branch=4.5.0#7fbb49f1e6b8f862567d588e7a9ebaad815dde23"
 dependencies = [
  "bindgen",
  "cc",

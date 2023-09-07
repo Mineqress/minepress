@@ -1,3 +1,3 @@
-# `minui-darwin-arm64`
+# `@minepress/minui-darwin-arm64`
 
-This is the **aarch64-apple-darwin** binary for `minui`
+This is the **aarch64-apple-darwin** binary for `@minepress/minui`
